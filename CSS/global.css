@@ -155,8 +155,15 @@ section h1::after {
 }
 
 /* Section À propos */
+.about{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4rem
+}
+
 .about-me {
-    max-width: 800px;
+    max-width: 40rem;
     margin-bottom: 3rem;
     background-color: white;
     padding: 2rem;
@@ -170,7 +177,7 @@ section h1::after {
 }
 
 .skill {
-    max-width: 800px;
+    max-width: 40rem;
     margin-bottom: 3rem;
     background-color: white;
     padding: 2rem;
