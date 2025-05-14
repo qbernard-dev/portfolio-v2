@@ -193,43 +193,61 @@ section h1::after {
 /* Section Formations */
 .timeline {
     position: relative;
-    max-width: 800px;
-    margin: 0 auto;
     padding: 2rem 0;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    width: 2px;
+    width: 4px;
     background-color: var(--primary-color);
     top: 0;
     bottom: 0;
-    left: 50%;
+    left: 25%;
 }
 
 .timeline-item {
-    padding: 10px 40px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
     position: relative;
-    width: 50%;
-    box-sizing: border-box;
 }
 
 .timeline-year {
-    position: absolute;
     width: 100px;
     background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 4px;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 30px;
     font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .timeline-info {
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: var(--accent-color);
+    padding: 15px;
+    margin-top: -10px;
+    width: 100%;
+    border-radius: 15px;
+    margin-left: 180px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: row;
+        align-items: center;
+    gap: 20px;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.timeline-text{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /* Section Projets */
