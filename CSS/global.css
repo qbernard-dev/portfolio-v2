@@ -15,6 +15,16 @@
     box-sizing: border-box;
 }
 
+/* Effect zoom */
+.effect{    
+    transition: all 0.3s ease;
+}
+
+.effect:hover{
+    scale: 1.1;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+
 /* Header */
 header {
     background-color: var(--primary-color);
@@ -116,7 +126,6 @@ header {
     background-color: white;
     border: solid 2px var(--primary-color);
     color: var(--primary-color);
-    transition: all 0.5s ease;
 }
 
 .button-sec {
@@ -231,10 +240,9 @@ section h1::after {
     width: 100%;
     border-radius: 15px;
     margin-left: 180px; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: row;
-        align-items: center;
+    align-items: center;
     gap: 20px;
 }
 
@@ -253,6 +261,7 @@ section h1::after {
 /* Section Projets */
 .projet {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -263,11 +272,6 @@ section h1::after {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.info-projet {
-    flex: 1;
-    min-width: 300px;
 }
 
 .info-projet h2 {
@@ -286,21 +290,9 @@ section h1::after {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.git {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-}
-
-.git:hover {
-    background-color: #555;
-    transform: translateY(-2px);
+.detail-projet{
+    display: flex;
+    gap: 30px;
 }
 
 /* Section Contact */
