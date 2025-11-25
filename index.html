@@ -7,43 +7,56 @@
   <link rel="stylesheet" href="/CSS/global.css"> 
 </head>
 <body>
+  
   <header>
     <nav id="nav-links">
-      <a href="/index.html#accueil">Accueil</a>
-      <a href="/index.html#about">À propos</a>
-      <a href="/index.html#formation">Formations</a>
-      <a href="/index.html#projet">Projets</a>
-      <a href="/index.html#contact">Contact</a>
+      <a href="#accueil">Accueil</a>
+      <a href="#about">À propos</a>
+      <a href="#formation">Formations</a>
+      <a href="#projet">Projets</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header> 
 
   <main>
+    
     <section id="accueil" class="profil">
-      <img src="/Image/photo_cv.jpg" alt="Photo de Quentin Bernard" class="avatar">
-      <div class="info">
-        <h1>Quentin BERNARD</h1>
-        <h2>Je suis en 3ème année de BUT Informatique à l'IUT de Lannion & alternant chez QUOTEX</h2>
-        <button class="button-sec" onclick="window.open('./mon_cv.pdf', '_blank');">Mon CV</button>
+      <div class="overlay"></div> <div class="content-wrapper">
+        <img src="/Image/photo_cv.jpg" alt="Photo de Quentin Bernard" class="avatar">
+        <div class="info">
+          <h1>Quentin BERNARD</h1>
+          <h2>Étudiant en 3ème année de BUT Informatique à l'IUT de Lannion & Alternant chez QUOTEX</h2>
+          <button class="button-sec" onclick="window.open('./mon_cv.pdf', '_blank');">Voir mon CV</button>
+        </div>
       </div>
-      <!--Mettre le scroll icon-->
+      
+      <a href="#about" class="scroll-down">↓</a>
     </section>
+
     <section id="about">
       <h1>Qui suis-je ?</h1>
-      <div class="about">
+      <div class="container about-container">
         <div class="about-me">
           <h2>À propos de moi</h2>
-          <p>Étudiant en 3ème année de BUT Informatique à l'IUT de Lannion, je poursuis ma formation en alternance en tant que développeur logiciel. Actuellement dans le Parcours A (Réalisation d'Applications), je continue d'acquérir des compétences techniques et pratiques pour devenir ingénieur en informatique à l'avenir.  Ma passion pour la programmation a débuté en Seconde grâce aux cours de SNT (Sciences Numériques et Technologiques), où j’ai découvert cet univers fascinant. Depuis, je me consacre pleinement à la programmation, avec un intérêt particulier pour la création, le développement et le design. Ce que j'apprécie le plus dans mon métier de développeur, c'est de comprendre les besoins précis d’un client et de voir sa satisfaction lorsque le projet aboutit.</p>
+          <p>Étudiant en 3ème année de BUT Informatique à l'IUT de Lannion, je poursuis ma formation en alternance en tant que développeur logiciel. Actuellement dans le Parcours A (Réalisation d'Applications), je continue d'acquérir des compétences techniques et pratiques pour devenir ingénieur en informatique.</p>
+          <p>Ma passion pour la programmation a débuté en Seconde. Depuis, je me consacre pleinement à la création, au développement et au design. Ce que j'apprécie le plus : comprendre les besoins précis d’un client et voir sa satisfaction lorsque le projet aboutit.</p>
         </div>
         <div class="skill">
-          <h2>Skills</h2>
-          <!--Mettre l'ensemble des skills-->
-          <button class="button-pry">C#</button>
+          <h2>Compétences</h2>
+          <button class="tag">C#</button>
+          <button class="tag">HTML / CSS</button>
+          <button class="tag">JavaScript</button>
+          <button class="tag">PHP</button>
+          <button class="tag">SQL</button>
+          <button class="tag">Git</button>
         </div>
       </div>
     </section>
+
     <section id="formation">
       <h1>Formations</h1>
-      <div class="timeline">
+      <div class="container timeline">
+        
         <div class="timeline-item">
             <span class="timeline-year">2028</span>
             <div class="timeline-info">
@@ -54,6 +67,7 @@
               </div>
             </div>
         </div>
+
         <div class="timeline-item">
             <span class="timeline-year">2025</span>
             <div class="timeline-info">
@@ -64,61 +78,70 @@
               </div>
             </div>
         </div>
+
         <div class="timeline-item">
             <span class="timeline-year">2022</span>
             <div class="timeline-info">
-              <img src="/Image/logo_lycee.png" alt="logo lycée august & jean renoir" class="logo">
+              <img src="/Image/logo_lycee.png" alt="logo lycée" class="logo">
               <div class="timeline-text">
                 <h3>Baccalauréat Général</h3>
                 <p>Lycée August et Jean Renoir, Angers (49)</p>
               </div> 
             </div>
         </div>
-    </div>
+
+      </div>
     </section>
+
     <section id="projet">
       <h1>Mes Projets</h1>
-      <div class="projet effect">
-        <div class="detail-projet">
+      <div class="container project-container">
+        
+        <div class="projet effect">
+          <div class="detail-projet">
             <img src="/Image/projet_ab.png" alt="Alhaiz Breizh">
             <div class="info-projet">
               <h2>Alhaiz Breizh</h2>
-              <p>Alhaiz Breizh est un projet fictif réalisé en deuxième année de BUT Informatique. Ce site offre aux utilisateurs la possibilité de rechercher des hébergements répondant à leurs critères, comme la localisation, le type de logement ou le budget. L'objectif principal du projet était de mettre en pratique des compétences acquises et de concevoir un outil adapté aux besoins des utilisateurs.</p>   
-              <p><strong>Technologies utilisés :</strong> HTML / CSS / PHP / JavaScript</p>
+              <p>Site fictif de recherche d'hébergements (localisation, type, budget). Objectif : Concevoir un outil adapté aux besoins utilisateurs.</p>   
+              <p><strong>Technologies :</strong> HTML / CSS / PHP / JavaScript</p>
+              <button onclick="window.open('https://github.com/MaximeDrdn/SAE_2A', '_blank')" class="button-pry">GitHub</button>
             </div>
           </div>
-          <button onclick="window.open('https://github.com/MaximeDrdn/SAE_2A', '_blank')" class="button-pry">GitHub</button>
-      </div>
+        </div>
 
-      <div class="projet effect">
-        <div class="detail-projet">
-          <img src="/Image/projet_pokemon.png" alt="Le Pokedex">
-          <div class="info-projet">
-            <h2>Pokédex Pokémon</h2>
-            <p>Ce projet, réalisé en deuxième année de BUT Informatique, consistait à développer un Pokedex Pokémon, une application web permettant de répertorier et d'afficher des informations détaillées sur les Pokémon. Elle offre la possibilité aux utilisateurs de consulter des données telles que les types, les statistiques et les évolutions des Pokémon, tout en proposant des filtres pour affiner la recherche selon différents critères.</p>
-            <p><strong>Technologies utilisés :</strong> JavaScript / HTML / CSS</p>       
+        <div class="projet effect">
+          <div class="detail-projet">
+            <img src="/Image/projet_pokemon.png" alt="Le Pokedex">
+            <div class="info-projet">
+              <h2>Pokédex Pokémon</h2>
+              <p>Application web répertoriant les Pokémon (types, statistiques, évolutions) avec filtres de recherche avancés.</p>
+              <p><strong>Technologies :</strong> JavaScript / HTML / CSS</p>       
+              <button onclick="window.open('https://github.com/Gweju35/Projet_Pokemon/tree/main/html', '_blank')" class="button-pry">GitHub</button>      
+            </div>
           </div>
         </div>
-        <button onclick="window.open('https://github.com/Gweju35/Projet_Pokemon/tree/main/html', '_blank')" class="button-pry">GitHub</button>      
+
       </div>
     </section>
+
     <section id="contact">
       <h1>Me Contacter</h1>
-      <div class="contact">
-        <img src="/Image/Memoji_hello.png" alt="QR-Code"> <!--mettre le qrcode-->
+      <div class="container-contact">
+        
+        <img src="/Image/Memoji_hello.png" alt="Mon Avatar" class="memoji"> 
+        
         <div class="info-contact">
-          <button class="button-pry">+33 (0)7 83 45 83 53</button>
-          <button class="button-pry">quentinbernard49770@gmail.com</button>
+          <div class="contact-buttons">
+            <button class="button-pry" onclick="window.location.href='tel:+33783458353'">📞 +33 (0)7 83 45 83 53</button>
+            <button class="button-pry" onclick="window.location.href='mailto:quentinbernard49770@gmail.com'">✉️ quentinbernard49770@gmail.com</button>
+            <button class="button-pry" onclick="window.open('https://www.linkedin.com/in/quentin-bernard-11536926a/', '_blank')">🔗 Mon LinkedIn</button>
+            <button class="button-pry" onclick="window.open('https://github.com/qbernard-dev', '_blank')">💻 Mon GitHub</button>
+          </div>
         </div>
       </div>
+      <p class="copyright">&copy; 2025 Quentin Bernard</p>
     </section>
+
   </main>
-  <footer>
-      <a href="https://github.com/qbernard-dev" target="_blank"><img src="./Image/github.svg"  alt="Icon GitHub" class="icon github"></a> 
-      <a href="mailto:quentinbernard49770@gmail.com"><img src="./Image/mail.png"  alt="Icon Email" class="icon email"></a> 
-      <p>&copy; Quentin - Bernard</p>
-      <a href="tel:+33783458353"><img src="./Image/phone.png" alt="Icon Phone" class="icon phone"></a> 
-      <a href="https://www.linkedin.com/in/quentin-bernard-11536926a/" target="_blank"><img src="./Image/lindekin.png" alt="Icon Linkendin" class="icon linkedin"></a>
-  </footer>
 </body>
 </html>

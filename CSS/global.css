@@ -1,45 +1,52 @@
-/* CSS/global.css */
+/* =========================================
+   1. VARIABLES & CONFIGURATION
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
 
 :root {
     font-family: "Noto Sans JP", sans-serif;
     --primary-color: #FA9DA8; 
-    --secondary-color: #333; 
-    --light-bg: #f8f9fa; 
-    --dark-bg: #343a40; 
+    --primary-dark: #e88a96;
+    --text-color: #444;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* Reset et base */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Effect zoom */
-.effect{    
-    transition: all 0.3s ease;
+body {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Empêche le scroll horizontal accidentel */
 }
 
-.effect:hover{
-    scale: 1.1;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-}
-
-/* Header */
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
 header {
     background-color: var(--primary-color);
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 #nav-links {
     display: flex;
-    justify-content: space-around;
-    max-width: 800px;
-    margin: 0 auto;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 #nav-links a {
@@ -47,85 +54,149 @@ header {
     text-decoration: none;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    transition: all 0.5s ease;
+    border-radius: 30px;
+    transition: background-color 0.3s;
 }
 
 #nav-links a:hover {
-    background-color: rgba(255,255,255,0.2);
-    border-radius: 4px;
+    background-color: rgba(255,255,255,0.25);
 }
 
-/* Section Profil/Accueil */
+/* =========================================
+   3. STRUCTURE DES SECTIONS
+   ========================================= */
+section {
+    padding: 5rem 1.5rem;
+    position: relative;
+}
+
+/* Classe utilitaire pour centrer le contenu et limiter la largeur */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    color: #333;
+}
+
+section h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* =========================================
+   4. SECTION ACCUEIL (FULL SCREEN)
+   ========================================= */
 .profil {
-    background-image: url(/Image/japan_back.jpg);
+    width: 100vw; /* Force la largeur totale */
+    height: 100vh; /* Force la hauteur totale */
+    padding: 0; /* Pas de padding pour l'image de fond */
+    
+    background-image: url('/Image/japan_back.jpg');
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
+    
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    position: relative;
-    color: white;
+    align-items: center;
     text-align: center;
+    color: white;
+    position: relative;
 }
 
-.profil::before {
-    content: '';
+/* Couche sombre par dessus l'image pour lire le texte */
+.profil .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.3);
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); 
     z-index: 1;
 }
 
-.profil .info {
+.profil .content-wrapper {
     position: relative;
     z-index: 2;
+    padding: 0 1rem;
     max-width: 800px;
 }
 
 .avatar {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid white;
+    border: 4px solid white;
     margin-bottom: 1.5rem;
-    z-index: 2;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 .profil h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    color: white; /* Force le blanc pour ce titre spécifique */
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.profil h1::after {
+    display: none; /* Pas de soulignement rose ici */
 }
 
 .profil h2 {
     font-size: 1.2rem;
+    font-weight: 300;
     margin-bottom: 2rem;
-    font-weight: normal;
+    opacity: 0.9;
 }
 
-/* Boutons */
-.button-sec, .button-pry {
-    padding: 0.8rem 1.5rem;
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    z-index: 2;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* =========================================
+   5. BOUTONS & TAGS
+   ========================================= */
+.button-pry, .button-sec {
+    padding: 0.8rem 1.8rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin: 0.5rem;
+    font-size: 1rem;
 }
 
 .button-pry {
     background-color: var(--primary-color);
     color: white;
+    box-shadow: 0 4px 6px rgba(250, 157, 168, 0.4);
+    margin: 5px;
 }
 
 .button-pry:hover {
-    background-color: white;
-    border: solid 2px var(--primary-color);
-    color: var(--primary-color);
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 .button-sec {
@@ -135,207 +206,240 @@ header {
 }
 
 .button-sec:hover {
-    background-color: rgba(255,255,255,0.2);
-    transform: translateY(-2px);
+    background-color: white;
+    color: var(--primary-color);
 }
 
-/* Sections générales */
-section {
-    padding: 4rem 2rem;
+.tag {
+    background-color: #eee;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    margin: 4px;
+    font-weight: bold;
+    color: #555;
+    cursor: default;
+}
+
+/* =========================================
+   6. SECTION À PROPOS
+   ========================================= */
+.about-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-}
-
-section h1::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 4px;
-    background-color: var(--primary-color);
-    margin: 1rem auto;
-}
-
-/* Section À propos */
-.about{
-    display: flex;
-    flex-direction: row;
+    gap: 2rem;
     flex-wrap: wrap;
-    gap: 4rem
+    justify-content: center;
 }
 
-.about-me {
-    max-width: 40rem;
-    margin-bottom: 3rem;
-    background-color: white;
+.about-me, .skill {
+    flex: 1 1 400px; /* Largeur min 400px, sinon wrap */
+    background: var(--white);
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
 }
 
-.about-me h2 {
-    margin-bottom: 1rem;
+.about-me h2, .skill h2 {
     color: var(--primary-color);
-}
-
-.skill {
-    max-width: 40rem;
-    margin-bottom: 3rem;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.skill h2 {
     margin-bottom: 1rem;
-    color: var(--primary-color);
 }
 
-/* Section Formations */
+/* =========================================
+   7. SECTION TIMELINE (FORMATION)
+   ========================================= */
 .timeline {
     position: relative;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
+/* La ligne verticale */
 .timeline::before {
     content: '';
     position: absolute;
-    width: 4px;
-    background-color: var(--primary-color);
-    top: 0;
-    bottom: 0;
-    left: 25%;
+    width: 3px;
+    background-color: #ddd;
+    top: 0; bottom: 0; left: 100px;
 }
 
 .timeline-item {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
+    align-items: center;
+    margin-bottom: 2.5rem;
     position: relative;
 }
 
 .timeline-year {
-    width: 100px;
-    background-color: var(--primary-color);
-    color: #FFF;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 1.2rem;
+    width: 80px;
     text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
 }
 
 .timeline-info {
-    background-color: var(--accent-color);
-    padding: 15px;
-    margin-top: -10px;
-    width: 100%;
-    border-radius: 15px;
-    margin-left: 180px; 
+    margin-left: 50px; /* Espace après la ligne */
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    flex-grow: 1;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 1.5rem;
 }
 
-.logo{
-    width: 100px;
-    height: 100px;
+.logo {
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
 
-.timeline-text{
+/* =========================================
+   8. SECTION PROJETS
+   ========================================= */
+.project-container {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 2rem;
 }
 
-/* Section Projets */
 .projet {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    max-width: 1000px;
-    margin-bottom: 3rem;
-    background-color: white;
+    background: white;
     padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.projet:hover {
+    transform: translateY(-5px);
+}
+
+.detail-projet {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.detail-projet img {
+    width: 100%;
+    max-width: 350px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .info-projet h2 {
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .info-projet p {
     margin-bottom: 1rem;
 }
 
-.projet img {
-    max-width: 400px;
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.detail-projet{
-    display: flex;
-    gap: 30px;
-}
-
-/* Section Contact */
-.contact {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    max-width: 800px;
-}
-
-.contact img {
-    max-width: 200px;
-    height: auto;
-}
-
-.info-contact {
+/* =========================================
+   9. SECTION CONTACT
+   ========================================= */ 
+section, .contact {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
-/* Footer */
-footer {
-    background-color: var(--primary-color, #333);
-    padding: 1rem 2rem;
+.container-contact {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap: 3rem;
+    flex-wrap: wrap;
+    gap: 200px;
 }
 
-footer p {
-    margin: 0.5rem;
+.contact .button-pry{
+    text-align: left;
+}
+
+.memoji {
+    width: auto;
+    transition: transform 0.3s;
+}
+.memoji:hover { transform: rotate(10deg); }
+
+.contact-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 .icon {
-    width: 30px;
-    height: 30px;
-    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
 }
 
 .icon:hover {
-    transform: translateY(-3px);
+    transform: scale(1.1);
+}
+
+.copyright {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* =========================================
+   10. RESPONSIVE (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* Header */
+    #nav-links { gap: 0.5rem; }
+    #nav-links a { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+
+    /* Profil */
+    .profil h1 { font-size: 2rem; }
+
+    /* Timeline Mobile */
+    .timeline::before { left: 20px; } /* Ligne à gauche */
+    
+    .timeline-item { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding-left: 35px; /* Décalage pour ne pas toucher la ligne */
+    }
+
+    .timeline-year {
+        margin-bottom: 10px;
+        left: -15px; /* Pour centrer sur la ligne */
+    }
+
+    .timeline-info {
+        margin-left: 0;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Projets Mobile */
+    .detail-projet {
+        flex-direction: column;
+    }
+    
+    .detail-projet img {
+        max-width: 100%;
+    }
 }
