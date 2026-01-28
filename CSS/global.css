@@ -1,20 +1,13 @@
-/* =========================================
-   1. VARIABLES & CONFIGURATION
-   ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
-
 :root {
-    font-family: "Noto Sans JP", sans-serif;
-    --primary-color: #FA9DA8; 
+    --primary: #FA9DA8; 
     --primary-dark: #e88a96;
-    --text-color: #444;
-    --bg-light: #f8f9fa;
+    --text: #444;
+    --text-light: #666;
+    --bg: #f8f9fa;
     --white: #ffffff;
     --shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-html {
-    scroll-behavior: smooth;
+    --radius: 12px;
+    --transition: all 0.3s ease;
 }
 
 * {
@@ -23,18 +16,21 @@ html {
     box-sizing: border-box;
 }
 
-body {
-    background-color: var(--bg-light);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden; /* Empêche le scroll horizontal accidentel */
+html {
+    scroll-behavior: smooth;
 }
 
-/* =========================================
-   2. HEADER & NAVIGATION
-   ========================================= */
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* HEADER */
 header {
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -42,92 +38,76 @@ header {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-#nav-links {
+nav ul {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
+    list-style: none;
     flex-wrap: wrap;
 }
 
-#nav-links a {
-    color: white;
+nav a {
+    color: var(--white);
     text-decoration: none;
     font-weight: bold;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 30px;
-    transition: background-color 0.3s;
+    transition: var(--transition);
 }
 
-#nav-links a:hover {
-    background-color: rgba(255,255,255,0.25);
+nav a:hover, nav a:focus {
+    background-color: rgba(255,255,255,0.2);
+    outline: none;
 }
 
-/* =========================================
-   3. STRUCTURE DES SECTIONS
-   ========================================= */
 section {
     padding: 5rem 1.5rem;
-    position: relative;
 }
 
-/* Classe utilitaire pour centrer le contenu et limiter la largeur */
 .container {
     max-width: 1100px;
     margin: 0 auto;
 }
 
-section h1 {
+h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
-    position: relative;
     color: #333;
 }
 
-section h1::after {
+h2::after {
     content: '';
     display: block;
-    width: 80px;
+    width: 60px;
     height: 4px;
-    background-color: var(--primary-color);
-    margin: 1rem auto 0;
+    background-color: var(--primary);
+    margin: 0.8rem auto 0;
     border-radius: 2px;
 }
 
-/* =========================================
-   4. SECTION ACCUEIL (FULL SCREEN)
-   ========================================= */
+/* PROFIL */
 .profil {
-    width: 100vw; /* Force la largeur totale */
-    height: 100vh; /* Force la hauteur totale */
-    padding: 0; /* Pas de padding pour l'image de fond */
-    
-    background-image: url('/Image/japan_back.jpg');
-    background-size: cover;
-    background-position: center;
-    
+    height: 100vh;
+    background: url('/Image/japan_back.jpg') center/cover no-repeat;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
     position: relative;
+    padding: 0;
 }
 
-/* Couche sombre par dessus l'image pour lire le texte */
 .profil .overlay {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4); 
-    z-index: 1;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
 }
 
 .profil .content-wrapper {
     position: relative;
     z-index: 2;
-    padding: 0 1rem;
-    max-width: 800px;
+    color: var(--white);
 }
 
 .avatar {
@@ -135,63 +115,51 @@ section h1::after {
     height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid white;
+    border: 4px solid var(--white);
     margin-bottom: 1.5rem;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-.profil h1 {
-    color: white; /* Force le blanc pour ce titre spécifique */
-    font-size: 3rem;
+h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
     margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-.profil h1::after {
-    display: none; /* Pas de soulignement rose ici */
-}
-
-.profil h2 {
+.subtitle {
     font-size: 1.2rem;
-    font-weight: 300;
     margin-bottom: 2rem;
-    opacity: 0.9;
+    font-weight: 300;
 }
 
 .scroll-down {
     position: absolute;
     bottom: 30px;
-    color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--white);
     font-size: 2rem;
     text-decoration: none;
-    z-index: 2;
     animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
 }
 
-/* =========================================
-   5. BOUTONS & TAGS
-   ========================================= */
+/* BUTTON */
 .button-pry, .button-sec {
-    padding: 0.8rem 1.8rem;
-    border: none;
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
+    transition: var(--transition);
 }
 
 .button-pry {
-    background-color: var(--primary-color);
-    color: white;
-    box-shadow: 0 4px 6px rgba(250, 157, 168, 0.4);
-    margin: 5px;
+    background-color: var(--primary);
+    color: var(--white);
 }
 
 .button-pry:hover {
@@ -200,262 +168,126 @@ section h1::after {
 }
 
 .button-sec {
-    background-color: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid var(--white);
+    color: var(--white);
 }
 
 .button-sec:hover {
-    background-color: white;
-    color: var(--primary-color);
+    background-color: var(--white);
+    color: var(--primary);
 }
 
 .tag {
+    display: inline-block;
     background-color: #eee;
-    border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 6px;
-    margin: 4px;
-    font-weight: bold;
+    margin: 0.2rem;
+    font-size: 0.9rem;
     color: #555;
-    cursor: default;
 }
 
-/* =========================================
-   6. SECTION À PROPOS
-   ========================================= */
+/* SECTION */
 .about-container {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
-.about-me, .skill {
-    flex: 1 1 400px; /* Largeur min 400px, sinon wrap */
+.about-me, .skill, .projet, .timeline-info {
     background: var(--white);
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
-.about-me h2, .skill h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
+.about-me { flex: 2 1 400px; }
+.skill { flex: 1 1 300px; }
 
-/* =========================================
-   7. SECTION TIMELINE (FORMATION)
-   ========================================= */
+/* Timeline */
 .timeline {
-    position: relative;
-    padding: 1rem 0;
-}
-
-/* La ligne verticale */
-.timeline::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: #ddd;
-    top: 0; bottom: 0; left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .timeline-item {
     display: flex;
     align-items: center;
-    margin-bottom: 2.5rem;
-    position: relative;
+    gap: 2rem;
 }
 
 .timeline-year {
-    width: 80px;
+    min-width: 80px;
+    background: var(--primary);
+    color: var(--white);
     text-align: center;
-    background-color: var(--primary-color);
-    color: white;
     padding: 0.5rem;
     border-radius: 8px;
     font-weight: bold;
-    position: relative;
-    z-index: 2;
 }
 
 .timeline-info {
-    margin-left: 50px; /* Espace après la ligne */
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 1.5rem;
 }
 
-.logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
+.logo { width: 50px; height: auto; }
 
-/* =========================================
-   8. SECTION PROJETS
-   ========================================= */
+/* Projets */
 .project-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.projet {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s;
-}
-
-.projet:hover {
-    transform: translateY(-5px);
-}
-
 .detail-projet {
     display: flex;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .detail-projet img {
-    width: 100%;
     max-width: 350px;
+    width: 100%;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.info-projet h2 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
+.info-projet { flex: 1; }
 
-.info-projet p {
-    margin-bottom: 1rem;
-}
-
-/* =========================================
-   9. SECTION CONTACT
-   ========================================= */ 
-section, .contact {
+/* FOOTER */
+.container-contact {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-}
-
-section .container-contact {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 200px;
-}
-
-.contact .button-pry{
-    text-align: left;
-}
-
-.memoji {
-    width: auto;
-    transition: transform 0.3s;
-}
-.memoji:hover { transform: rotate(10deg); }
-
-.contact-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
     justify-content: center;
-    flex-direction: column;
-}
-
-.social-links {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1rem;
-    width: 10%;
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
 .icon {
-    width: 70px;
-    height: 70px;
-    transition: transform 0.3s;
-    color: var(--primary-color) !important;
+    width: 60px;
+    height: 60px;
+    color: var(--primary);
+    transition: var(--transition);
 }
 
-.svg-icon {
-    fill: currentColor;
-}
+.svg-icon { fill: currentColor; }
 
-.icon:hover {
-    transform: scale(1.1);
-}
+.icon:hover { transform: scale(1.1); }
 
 .copyright {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #888;
+    text-align: center;
+    color: var(--text-light);
+    border-top: 1px solid #ddd;
+    padding-top: 2rem;
 }
 
-/* =========================================
-   10. RESPONSIVE (MOBILE)
-   ========================================= */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    
-    /* Header */
-    #nav-links { gap: 0.5rem; }
-    #nav-links a { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
-
-    /* Profil */
-    .profil h1 { font-size: 2rem; }
-
-    /* Timeline Mobile */
-    .timeline::before { left: 20px; } 
-    
-    .timeline-item { 
-        flex-direction: column; 
-        align-items: flex-start; 
-        padding-left: 35px; 
-    }
-
-    .timeline-year {
-        margin-bottom: 10px;
-        left: -15px; 
-    }
-
-    .timeline-info {
-        margin-left: 0;
-        width: 100%;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    /* Projets Mobile */
-    .detail-projet {
-        flex-direction: column;
-    }
-    
-    .detail-projet img {
-        max-width: 100%;
-    }
-
-    /* Contact Mobile */
-    section .container-contact {
-    gap: 20px;
-    }
-
-    .icon {
-        width: 50px;
-        height: 50px;
-    }
+    .timeline-item { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .timeline-info { width: 100%; }
+    .detail-projet { flex-direction: column; }
+    .detail-projet img { max-width: 100%; }
 }
