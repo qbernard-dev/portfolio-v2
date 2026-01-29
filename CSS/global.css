@@ -30,6 +30,14 @@ body {
     overflow-x: hidden;
 }
 
+html, body, a, button, .button-pry, .button-sec, .icon-btn, input {
+    cursor: url('/Image/cursor.svg') 10 10, auto !important;
+}
+
+a:hover, button:hover, .button-pry:hover, .button-sec:hover, .icon-btn:hover, input:hover {
+    cursor: url('/Image/cursor-hover.svg') 10 10, pointer !important;
+}
+
 /* BACKGROUND */
 .bg-fixed {
     position: fixed;
@@ -91,7 +99,6 @@ body {
     font-weight: 700;
     text-decoration: none;
     transition: var(--transition);
-    cursor: pointer;
 }
 
 .button-pry {
@@ -181,7 +188,6 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    cursor: pointer;
     font-weight: bold;
     transition: var(--transition);
     display: flex;
@@ -276,7 +282,6 @@ body {
     border-radius: 8px;
     font-size: 0.9rem;
     font-weight: 700;
-    cursor: default;
     transition: transform 0.2s;
 }
 
