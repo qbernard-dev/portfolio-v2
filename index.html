@@ -3,158 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quentin Bernard | Développeur Logiciel & Alternant</title>
-    <meta name="description" content="Portfolio de Quentin Bernard, étudiant en BUT Informatique et développeur logiciel en alternance.">
+    <title>Quentin Bernard | Développeur & Alternant</title>
+    <meta name="description" content="Portfolio de Quentin Bernard, étudiant et développeur.">
+    
     <link rel="stylesheet" href="/CSS/global.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
+    
     <script src="/JS/main.js" defer></script>
 </head>
 <body>
-    
-    <header>
-        <nav>
+
+    <div class="bg-fixed"></div>
+
+    <header class="glass-header">
+        <nav class="container nav-container">
+            <div class="logo-text">QB.</div>
+            
             <ul id="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#formation">Formations</a></li>
-                <li><a href="#projet">Projets</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#accueil" data-i18n="nav.home">Accueil</a></li>
+                <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+                <li><a href="#parcours" data-i18n="nav.education">Parcours</a></li>
+                <li><a href="#projet" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
+
+            <button id="lang-toggle" class="btn-lang" aria-label="Changer de langue">
+                <span class="lang-txt">FR</span>
+            </button>
         </nav>
     </header> 
 
     <main>
-        <section id="accueil" class="profil">
-            <div class="overlay"></div>
-            <div class="content-wrapper">
+        
+        <section id="accueil" class="hero-section">
+            <div class="hero-content glass-card reveal">
                 <img src="/Image/photo_cv.jpg" alt="Portrait de Quentin Bernard" class="avatar">
-                <div class="info">
-                    <h1>Quentin BERNARD</h1>
-                    <p class="subtitle">Étudiant en 3ème année de BUT Informatique & Alternant chez QUOTEX</p>
-                    <a href="./mon_cv.pdf" target="_blank" class="button-sec">Voir mon CV</a>
+                <h1>Quentin BERNARD</h1>
+                <p class="subtitle" data-i18n="hero.role">Étudiant en 3ème année d'ingénieur à ESEO & Alternant chez QUOTEX</p>
+                <div class="cta-group">
+                    <a href="./mon_cv.pdf" target="_blank" class="button-pry" data-i18n="hero.cv" id="cvlink">Voir mon CV</a>
+                    <a href="#contact" class="button-sec" data-i18n="hero.contact">Me contacter</a>
                 </div>
             </div>
-            <a href="#about" class="scroll-down" aria-label="Défiler vers le bas">↓</a>
+            <a href="#about" class="scroll-down">↓</a>
         </section>
 
-        <section id="about">
-            <h2>Qui suis-je ?</h2>
-            <div class="container about-container">
-                <article class="about-me">
-                    <h3>À propos de moi</h3>
-                    <p>Étudiant en 3ème année de BUT Informatique à l'IUT de Lannion, je poursuis ma formation en alternance en tant que développeur logiciel...</p>
-                    <p>Ma passion pour la programmation a débuté en Seconde. Depuis, je me consacre pleinement à la création, au développement et au design.</p>
+        <section id="about" class="section-padding">
+            <div class="container about-grid">
+                <article class="about-card glass-card reveal delay-1">
+                    <h2 data-i18n="about.title">Qui suis-je ?</h2>
+                    <p data-i18n="about.p1">Étudiant en 3ème année d'ingénieur à ESEO, je poursuis ma formation en alternance en tant que développeur logiciel...</p>
+                    <p data-i18n="about.p2">Ma passion pour la programmation a débuté en Seconde. Depuis, je me consacre pleinement à la création, au développement et au design.</p>
                 </article>
                 
-                <aside class="skill">
-                    <h3>Compétences</h3>
-                    <div class="tags-container">
+                <aside class="skills-card glass-card reveal delay-2">
+                    <h3 data-i18n="about.skills">Compétences</h3>
+                    <div class="tags-wrapper">
                         <span class="tag">C#</span>
-                        <span class="tag">HTML / CSS</span>
+                        <span class="tag">C / C++</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">HTML5 / CSS3</span>
                         <span class="tag">JavaScript</span>
+                        <span class="tag">Java</span>
                         <span class="tag">PHP</span>
                         <span class="tag">SQL</span>
-                        <span class="tag">Git</span>
+                        <span class="tag">Git / GitHub</span>
                     </div>
                 </aside>
             </div>
         </section>
 
-        <section id="formation">
-            <h2>Formations</h2>
-            <div class="container timeline">
+<section id="parcours" class="section-padding">
+    <h2 class="section-title reveal" data-i18n="nav.education">Mon Parcours</h2>
+    <div class="container timeline-container">
+        
+        <div class="timeline-row reveal">
+            <div class="timeline-meta">
+                <span class="year">2025 - 2028</span>
+                <div class="school-logo">
+                    <img src="/Image/logo-eseo.png" alt="ESEO Logo">
+                </div>
+            </div>
+            <div class="timeline-card glass-card">
+                <div class="card-header">
+                    <h3 data-i18n="edu.eseo.degree">Diplôme d'Ingénieur</h3>
+                    <span class="location">ESEO, Angers (49)</span>
+                </div>
+                <p class="description" data-i18n="edu.eseo.desc">
+                    Cycle ingénieur généraliste avec une future spécialisation en Systèmes d'Information.
+                    Focus sur l'architecture logicielle et le management d'équipe technique.
+                </p>
+                <div class="tags-mini">
+                    <span data-i18n="edu.info">Informatique</span>
+                    <span data-i18n="edu.elec">Électronique</span>
+                    <span data-i18n="edu.mana">Management</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-row reveal delay-1">
+            <div class="timeline-meta">
+                <span class="year">2022 - 2025</span>
+                <div class="school-logo">
+                    <img src="/Image/Logo_IUT_Lannion.png" alt="IUT Logo">
+                </div>
+            </div>
+            <div class="timeline-card glass-card">
+                <div class="card-header">
+                    <h3 data-i18n="edu.but.degree">BUT Informatique</h3>
+                    <span class="location">IUT Lannion (22)</span>
+                </div>
+                <p class="description" data-i18n="edu.but.desc">
+                    Parcours Réalisation d'Applications. Apprentissage approfondi du développement Fullstack et des bases de données, et des méthodologies agiles.
+                </p>
+                <div class="tags-mini">
+                    <span data-i18n="edu.algo">Algorithmique</span>
+                    <span data-i18n="edu.web">Web Fullstack</span>
+                    <span data-i18n="edu.db">Base de Données</span>
+                    <span data-i18n="edu.agile">Agile / Scrum</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-row reveal delay-2">
+            <div class="timeline-meta">
+                <span class="year">2022</span>
+                <div class="school-logo">
+                    <img src="/Image/logo_lycee.png" alt="Lycée Logo">
+                </div>
+            </div>
+            <div class="timeline-card glass-card">
+                <div class="card-header">
+                    <h3 data-i18n="edu.bac.degree">Baccalauréat Général</h3>
+                    <span class="location">Lycée Renoir, Angers (49)</span>
+                </div>
+                <p class="description" data-i18n="edu.bac.desc">
+                    Spécialités Mathématiques et Numérique & Sciences Informatiques (NSI). Mention Bien.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        <section id="projet" class="section-padding">
+            <h2 class="section-title reveal" data-i18n="nav.projects">Mes Projets</h2>
+            <div class="container projects-grid">
                 
-                <article class="timeline-item">
-                    <span class="timeline-year">2028</span>
-                    <div class="timeline-info">
-                        <img src="/Image/logo-eseo.png" alt="Logo ESEO" class="logo" loading="lazy">  
-                        <div class="timeline-text">
-                            <h3>Diplôme Ingénieur</h3>
-                            <p>ESEO, Angers (49)</p>
+                <article class="project-card glass-card reveal">
+                    <div class="project-img-wrapper">
+                        <img src="/Image/projet_ab.png" alt="Alhaiz Breizh" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Alhaiz Breizh</h3>
+                        <p data-i18n="proj.ab">Site fictif de recherche de logement de vacances pour la région Bretagne.</p>
+                        <div class="tech-stack">
+                          <span class="mini-tag">HTML / CSS</span>
+                            <span class="mini-tag">PHP</span>
+                            <span class="mini-tag">MySQL</span>
                         </div>
+                        <a href="https://github.com/MaximeDrdn/SAE_2A" target="_blank" class="link-arrow" data-i18n="btn.github">Voir le code →</a>
                     </div>
                 </article>
 
-                <article class="timeline-item">
-                    <span class="timeline-year">2025</span>
-                    <div class="timeline-info">
-                        <img src="/Image/Logo_IUT_Lannion.png" alt="Logo IUT Lannion" class="logo" loading="lazy">
-                        <div class="timeline-text">
-                            <h3>BUT Informatique</h3>
-                            <p>Université de Rennes, Lannion (22)</p>
-                        </div>
+                <article class="project-card glass-card reveal delay-1">
+                    <div class="project-img-wrapper">
+                        <img src="/Image/projet_pokemon.png" alt="Pokédex" loading="lazy">
                     </div>
-                </article>
-
-                <article class="timeline-item">
-                    <span class="timeline-year">2022</span>
-                    <div class="timeline-info">
-                        <img src="/Image/logo_lycee.png" alt="Logo Lycée" class="logo" loading="lazy">
-                        <div class="timeline-text">
-                            <h3>Baccalauréat Général</h3>
-                            <p>Lycée Auguste et Jean Renoir, Angers (49)</p>
-                        </div> 
+                    <div class="project-info">
+                        <h3>Pokédex Pokémon</h3>
+                        <p data-i18n="proj.poke">Application web répertoriant les Pokémon avec filtres avancés.</p>
+                        <div class="tech-stack">
+                            <span class="mini-tag">JavaScript</span>
+                            <span class="mini-tag">HTML</span>
+                        </div>
+                        <a href="https://github.com/Gweju35/Projet_Pokemon" target="_blank" class="link-arrow" data-i18n="btn.github">Voir le code →</a>
                     </div>
                 </article>
 
             </div>
         </section>
 
-        <section id="projet">
-            <h2>Mes Projets</h2>
-            <div class="container project-container">
-                
-                <article class="projet effect">
-                    <div class="detail-projet">
-                        <img src="/Image/projet_ab.png" alt="Aperçu du site Alhaiz Breizh" loading="lazy">
-                        <div class="info-projet">
-                            <h3>Alhaiz Breizh</h3>
-                            <p>Site fictif de recherche d'hébergements. Objectif : Concevoir un outil adapté aux besoins utilisateurs.</p>   
-                            <p><strong>Technologies :</strong> HTML / CSS / PHP / JS</p>
-                            <a href="https://github.com/MaximeDrdn/SAE_2A" target="_blank" class="button-pry">Voir sur GitHub</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="projet effect">
-                    <div class="detail-projet">
-                        <img src="/Image/projet_pokemon.png" alt="Aperçu de l'application Pokédex" loading="lazy">
-                        <div class="info-projet">
-                            <h3>Pokédex Pokémon</h3>
-                            <p>Application web répertoriant les Pokémon avec filtres de recherche avancés.</p>
-                            <p><strong>Technologies :</strong> JavaScript / HTML / CSS</p>       
-                            <a href="https://github.com/Gweju35/Projet_Pokemon" target="_blank" class="button-pry">Voir sur GitHub</a>      
-                        </div>
-                    </div>
-                </article>
-
+        <section id="contact" class="section-padding">
+            <div class="container contact-wrapper glass-card reveal">
+                <h2 data-i18n="nav.contact">Me Contacter</h2>
+                <div class="icons-row">
+                    <a href="tel:+33783458353" class="icon-btn" aria-label="Téléphone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </a>
+                    <a href="mailto:quentinbernard49770@gmail.com" class="icon-btn" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/quentin-bernard-11536926a/" target="_blank" class="icon-btn" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                </div>
+                <p class="copyright">&copy; 2026 Quentin Bernard</p>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Me Contacter</h2>
-            <div class="container-contact">
-                <a href="tel:+33783458353" class="icon" aria-label="Appeler Quentin">
-                    <svg viewBox="0 0 24 24" class="svg-icon" aria-hidden="true">
-                        <path d="M6.62 10.79a15.09 15.09 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1v3.5a1 1 0 01-1 1C9.61 21 3 14.39 3 6.5a1 1 0 011-1H7.5a1 1 0 011 1c0 1.25.2 2.46.57 3.59a1 1 0 01-.25 1.01l-2.2 2.19z"/>
-                    </svg>
-                </a>
-
-                <a href="mailto:quentinbernard49770@gmail.com" class="icon" aria-label="Envoyer un email">
-                    <svg viewBox="0 0 24 24" class="svg-icon" aria-hidden="true">
-                        <path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm0 4l8 5 8-5"/>
-                    </svg>
-                </a>
-
-                <a href="https://www.linkedin.com/in/quentin-bernard-11536926a/" target="_blank" class="icon" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" class="svg-icon" aria-hidden="true">
-                        <path d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 9h4v12H3zM9 9h4v1.7c.6-1.1 2-2 3.9-2 4.2 0 5 2.8 5 6.4V21h-4v-5.4c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/>
-                    </svg>
-                </a>
-            </div> 
-            <footer class="copyright">
-                <p>&copy; 2025 Quentin Bernard — Conçu avec passion</p>
-            </footer>
-        </section>
     </main>
 </body>
 </html>
